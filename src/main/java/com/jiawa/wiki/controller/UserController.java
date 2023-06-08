@@ -1,6 +1,7 @@
 package com.jiawa.wiki.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.jiawa.wiki.mapper.UserMapper;
 import com.jiawa.wiki.req.UserLoginReq;
 import com.jiawa.wiki.req.UserQueryReq;
 import com.jiawa.wiki.req.UserResetPasswordReq;
@@ -31,6 +32,9 @@ public class UserController {
     private UserService userService;
 
     @Resource
+    private UserMapper userMapper;
+
+    @Resource
     private SnowFlake snowFlake;
 
     @Resource
@@ -55,8 +59,10 @@ public class UserController {
     @DeleteMapping("/delete/{id}")
     public CommonResp delete(@PathVariable Long id) {
         CommonResp resp = new CommonResp<>();
-        userService.delete(id);
+//        userService.delete(id);
+        userMapper.deleteByPrimaryKey(id);
         return resp;
+
     }
 
     @PostMapping("/reset-password")
