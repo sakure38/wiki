@@ -1,5 +1,6 @@
 package com.jiawa.wiki.controller;
 
+import com.jiawa.wiki.mapper.EbookMapper;
 import com.jiawa.wiki.req.EbookQueryReq;
 import com.jiawa.wiki.req.EbookSaveReq;
 import com.jiawa.wiki.resp.CommonResp;
@@ -17,6 +18,9 @@ public class EbookController {
 
     @Resource
     private EbookService ebookService;
+
+    @Resource
+    private EbookMapper ebookMapper;
 
     @GetMapping("/list")
     public CommonResp list(@Valid EbookQueryReq req) {
@@ -36,7 +40,8 @@ public class EbookController {
     @DeleteMapping("/delete/{id}")
     public CommonResp delete(@PathVariable Long id) {
         CommonResp resp = new CommonResp<>();
-        ebookService.delete(id);
+//        ebookService.delete(id);
+        ebookMapper.deleteByPrimaryKey(id);
         return resp;
     }
 }

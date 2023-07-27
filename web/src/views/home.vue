@@ -3,6 +3,7 @@
     <a-layout-sider width="200" style="background: #fff">
       <a-menu
         mode="inline"
+
         :style="{ height: '100%', borderRight: 0 }"
         @click="handleClick"
         :openKeys="openKeys"
@@ -11,7 +12,7 @@
           <MailOutlined />
           <span>欢迎</span>
         </a-menu-item>
-        <a-sub-menu v-for="item in level1" :key="item.id" :disabled="true">
+        <a-sub-menu v-for="item in level1" :key="item.id" >
           <template v-slot:title>
             <span><user-outlined />{{item.name}}</span>
           </template>
@@ -106,10 +107,10 @@ export default defineComponent({
           console.log("原始数组：", categorys);
 
           // 加载完分类后，将侧边栏全部展开
-          openKeys.value = [];
-          for (let i = 0; i < categorys.length; i++) {
-            openKeys.value.push(categorys[i].id)
-          }
+          // openKeys.value = [];
+          // for (let i = 0; i < categorys.length; i++) {
+          //   openKeys.value.push(categorys[i].id)
+          // }
 
           level1.value = [];
           level1.value = Tool.array2Tree(categorys, 0);

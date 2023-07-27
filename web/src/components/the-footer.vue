@@ -1,6 +1,8 @@
 <template>
   <a-layout-footer style="text-align: center">
-    甲蛙电子书<span v-show="user.id">，欢迎：{{user.name}}</span>
+<!--    甲蛙电子书<span v-show="user.id">，欢迎：{{user.name}}</span>-->
+    <a href="https://beian.miit.gov.cn/" target="_blank">
+      桂ICP备2023005646号</a>
   </a-layout-footer>
 </template>
 

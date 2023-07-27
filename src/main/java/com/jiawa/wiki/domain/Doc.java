@@ -1,6 +1,8 @@
 package com.jiawa.wiki.domain;
 
+
 public class Doc {
+
     private Long id;
 
     private Long ebookId;
